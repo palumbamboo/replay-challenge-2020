@@ -18,6 +18,19 @@ class Algorithm
     result
   end
 
+  def self.adiacent_cells map, row, col
+    adiacents = []
+    # SOPRA
+    adiacents[0] = row>0 ? map[row-1][col] : nil
+    # SOTTO
+    adiacents[1] = row<map.size-1 ? map[row+1][col] : nil
+    # DESTRA
+    adiacents[2] = col < map[row].size-1 ? map[row][col+1] : nil
+    # SINISTRA
+    adiacents[3] = col>0 ? map[row][col-1] : nil
+    adiacents
+  end
+
   def self.print_result(result, size, file)
     File.open("output_files/#{file}", 'w') do |f|
       size.times do |index|

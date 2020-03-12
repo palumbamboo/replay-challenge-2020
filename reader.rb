@@ -1,5 +1,5 @@
 class Reader
-  FILE_TO_LOAD = 'c_soup.txt'
+  FILE_TO_LOAD = 'a_solar.txt'
 
   attr_accessor :file
 
