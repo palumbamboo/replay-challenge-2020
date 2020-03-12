@@ -24,6 +24,7 @@ class Algorithm
 
         if adiacents[0] == '_' && !new_cell.is_a?(String)
           new_dev = map.developers.max_by{ |dev| compute_tp(new_cell, dev) }
+          next unless new_dev
           map.developers = map.developers - [new_dev]
           map.floor_map[index_row][index_col+1] = new_dev
           result[new_dev.id] = "#{index_col+1} #{index_row}"
@@ -31,6 +32,7 @@ class Algorithm
 
         if adiacents[0] == 'M' && !new_cell.is_a?(String)
           new_man = map.managers.max_by{ |man| compute_tp(new_cell, man) }
+          next unless new_man
           map.managers = map.managers-[new_man]
           map.floor_map[index_row][index_col+1] = new_man
           result[new_man.id] = "#{index_col+1} #{index_row}"
@@ -38,6 +40,7 @@ class Algorithm
 
         if adiacents[1] == '_' && !new_cell.is_a?(String)
           new_dev = map.developers.max_by{ |dev| compute_tp(new_cell, dev) }
+          next unless new_dev
           map.developers = map.developers - [new_dev]
           map.floor_map[index_row+1][index_col] = new_dev
           result[new_dev.id] = "#{index_col} #{index_row+1}"
@@ -45,6 +48,7 @@ class Algorithm
 
         if adiacents[1] == 'M' && !new_cell.is_a?(String)
           new_man = map.managers.max_by{ |man| compute_tp(new_cell, man) }
+          next unless new_man
           map.managers = map.managers-[new_man]
           map.floor_map[index_row+1][index_col] = new_man
           result[new_man.id] = "#{index_col} #{index_row+1}"
