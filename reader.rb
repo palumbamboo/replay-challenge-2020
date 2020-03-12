@@ -4,7 +4,7 @@ class Reader
   attr_accessor :file
 
   def initialize
-    @file = File.read('files/' + FILE_TO_LOAD).split("\n")
+    @file = File.read('input_files/' + FILE_TO_LOAD).split("\n")
   end
 
   def read
